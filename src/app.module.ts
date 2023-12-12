@@ -4,6 +4,8 @@ import { ProductModule } from './modules/product/product.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from './modules/user/entities/user.entity';
 import { ProductEntity } from './modules/product/entities/product.entity';
+import { CategoryModule } from './modules/category/category.module';
+import { CategoryEntity } from './modules/category/entities/category.entity';
 
 @Module({
   imports: [
@@ -16,9 +18,10 @@ import { ProductEntity } from './modules/product/entities/product.entity';
       username: 'root',
       password: '',
       database: 'dummy_app',
-      entities: [UserEntity, ProductEntity],
+      entities: [UserEntity, ProductEntity, CategoryEntity],
       synchronize: false,
     }),
+    CategoryModule,
 
   ],
 })

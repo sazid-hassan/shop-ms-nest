@@ -16,10 +16,23 @@ export class ProductRepository {
             const Product = this.repository.create(dto);
             const createdProduct = await this.repository.save(Product);
             return createdProduct;
-         }
-        catch (error)
-        {
+        }
+        catch (error) {
             throw error;
         }
+    }
+
+    async getAllProduct() {
+        try {
+            const products = await this.repository.find()
+            return products;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+
+    async deleteProduct(id: number) {
+        return this.repository.delete(id);
     }
 }

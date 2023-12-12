@@ -13,7 +13,7 @@ export class ProductService {
   }
 
   findAll() {
-    return `This action returns all product`;
+    return this.repo.getAllProduct();
   }
 
   findOne(id: number) {
@@ -25,6 +25,6 @@ export class ProductService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} product`;
+    return this.repo.deleteProduct(id);
   }
 }
