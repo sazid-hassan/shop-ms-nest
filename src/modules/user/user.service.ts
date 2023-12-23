@@ -12,11 +12,11 @@ export class UserService {
   }
 
   findAll() {
-    return `This action returns all user`;
+    return this.repo.getAllUser();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} user`;
+    return this.repo.getSingleUser(id);
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
