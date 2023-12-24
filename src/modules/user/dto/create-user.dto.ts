@@ -1,4 +1,6 @@
-import { IsString } from "class-validator";
+import { IsEmail, IsString } from "class-validator";
+import { UserEntity } from "../entities/user.entity";
+import { IsUnique } from '../is-unique.decorator';
 
 export class CreateUserDto {
     @IsString()
@@ -7,7 +9,8 @@ export class CreateUserDto {
     @IsString()
     user_password: string;
 
-    @IsString()
+    @IsEmail()
+    @IsUnique(UserEntity, { message: 'Email address must be unique' })
     user_email: string;
 
     @IsString()
